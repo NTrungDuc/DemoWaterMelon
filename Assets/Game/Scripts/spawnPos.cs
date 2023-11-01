@@ -17,6 +17,9 @@ public class spawnPos : MonoBehaviour
     public int scoreIndex;
     int Score;
     int watermelon;
+    //sound
+    public AudioSource soundCol;
+    public AudioSource soundMerge;
     // Start is called before the first frame update
     void Start()
     {

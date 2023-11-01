@@ -41,12 +41,21 @@ public class Fruits : MonoBehaviour
             if (id == collision.gameObject.GetComponent<Fruits>().id)
             {
                 Debug.Log("merge");
+                spawnPosFruit.soundMerge.Play();
                 spawnPosFruit.spawnPosition=transform.position;
                 spawnPosFruit.index = id + 1;
                 spawnPosFruit.scoreIndex = score;
                 spawnPosFruit.replaceFr = true;
-                Destroy(gameObject);           
+                Destroy(gameObject);
             }
+            else
+            {
+                spawnPosFruit.soundCol.Play();
+            }
+        }
+        if (collision.gameObject.tag == "Ground")
+        {
+            spawnPosFruit.soundCol.Play();
         }
     }
 }

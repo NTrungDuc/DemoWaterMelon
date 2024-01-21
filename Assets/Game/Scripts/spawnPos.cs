@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class spawnPos : MonoBehaviour
 {
+    private static spawnPos instance;
+    public static spawnPos Instance { get=> instance; }
     [SerializeField] public List<GameObject> fruitPrefabs;
     [SerializeField] private GameObject fruits;
     public Vector3 newPos;
@@ -20,6 +22,10 @@ public class spawnPos : MonoBehaviour
     //sound
     public AudioSource soundCol;
     public AudioSource soundMerge;
+    private void Awake()
+    {
+        instance = this; 
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -27,12 +33,6 @@ public class spawnPos : MonoBehaviour
         newPos = transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        replaceFruit();
-        getMouseInputPos();
-    }
     public void getMouseInputPos()
     {
         if (Input.GetMouseButtonDown(0) && !hasSpawned)

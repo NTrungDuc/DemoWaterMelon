@@ -26,6 +26,8 @@ public class Fruits : MonoBehaviour
             transform.position = new Vector3(spawnPosFruit.newPos.x, transform.position.y, 0);
             rb.gravityScale = 1;
         }
+        spawnPos.Instance.replaceFruit();
+        spawnPos.Instance.getMouseInputPos();
     }
     public IEnumerator setFall()
     {
